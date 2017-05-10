@@ -1,5 +1,4 @@
-# Escuela-de-Innovacion-Publica
-Escuela de Innovación Publica - Fronted
+# Escuela de Innovación Publica
 =======================
 
 El proyecto tiene como objetivo promover la transparencia y la participación ciudadana a través del análisis y la visualización de información acerca del gasto público de Guatemala.
