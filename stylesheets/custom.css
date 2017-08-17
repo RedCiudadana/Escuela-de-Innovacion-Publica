@@ -6,9 +6,20 @@ ul.nav-pills > li.active > a {
     background: #005b7f;
 }
 
-@media (min-width: 992px) {
+@media(min-width: 992px) {
     #header .header-nav-main nav > ul > li.open > a,
     #header .header-nav-main nav > ul > li:hover > a {
         background: #005b7f;
+    }
+}
+
+.header .header-wrap .logo {
+    width: 145px;
+    margin-top: 10px;
+}
+
+@media(max-width: 768px) {
+    .header .header-wrap .logo {
+        margin-top: 3px;
     }
 }
