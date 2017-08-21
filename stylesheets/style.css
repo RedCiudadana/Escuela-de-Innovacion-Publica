@@ -477,12 +477,12 @@ select.orderby {
 }
 
 label.modern-select:hover select {
-	color: #ffaa30;
-	border-color: #ffaa30;
+	color: #0007B2;
+	border-color: #0007B2;
 }
 
 label.modern-select:hover:after {
-	color: #ffaa30;
+	color: #0007B2;
 }
 
 .sort-views a {
