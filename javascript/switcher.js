@@ -1,11 +1,22 @@
 window.console = window.console || function() {
-   var e = {};
-   e.log = e.warn = e.debug = e.info = e.error = e.time = e.dir = e.profile = e.clear = e.exception = e.trace = e.assert = function() {};
-   return e
+    var e = {};
+    e.log
+        = e.warn
+        = e.debug
+        = e.info
+        = e.error
+        = e.time
+        = e.dir
+        = e.profile
+        = e.clear
+        = e.exception
+        = e.trace
+        = e.assert = function() {};
+    return e
 }();
 
 $(document).ready(function() {
-	var e =  '<div class="switcher-container">'+
+    var e = '<div class="switcher-container">'+
                '<h2>STYLE SWITCHER<a href="#" class="sw-click"><i class="fa fa-cog"></i></a></h2>'+
                '<div class="selector-box">'+
                     '<div class="clearfix"></div>'+
@@ -20,12 +31,12 @@ $(document).ready(function() {
                         '<a href="#color3" class="styleswitch" id="color3">'+
                             '&nbsp;<span class="cl3"></span>'+
                         '</a>'+
-                        
+
                     '</div></div>'+
                     '<div class="sw-even"><h3>Layout:</h3>'+
                         '<a href="#" class="sw-light">BOX</a>' +
                         '<a href="#" class="sw-dark">WIDE</a>' +
-                    '</div>'+                      
+                    '</div>'+
                     '<div class="sw-pattern pattern"><h3>Background pattern:</h3>'+
                         '<a href="#" class="sw-pattern" data-image="images/pattern/1.png"><img src="images/pattern/1.png" alt="image"></a>' +
                         '<a href="#" class="sw-pattern" data-image="images/pattern/2.png"><img src="images/pattern/2.png" alt="image"></a>' +
@@ -37,16 +48,18 @@ $(document).ready(function() {
                         '<a href="#" class="sw-pattern" data-image="images/pattern/8.png"><img src="images/pattern/8.png" alt="image"></a>' +
                         '<a href="#" class="sw-pattern" data-image="images/pattern/9.png"><img src="images/pattern/9.png" alt="image"></a>' +
                         '<a href="#" class="sw-pattern" data-image="images/pattern/10.png"><img src="images/pattern/10.png" alt="image"></a>' +
-                    '</div>'+               
+                    '</div>'+
                   '<div class="clearfix"></div>'+
                '</div>'+
             '</div>';
-	$('body').append(e);
-	switchAnimate.loadEvent();
-	switchColor.loadEvent();
-    });
 
-    var switchColor = {
+    $('body').append(e);
+
+    switchAnimate.loadEvent();
+    switchColor.loadEvent();
+});
+
+var switchColor = {
     colorObj: {
         colorCookie: "colorCookie",
         switchClass: ".styleswitch",
@@ -56,6 +69,7 @@ $(document).ready(function() {
         reset: "#reset",
         defaultColor: "color1"
     },
+
     loadEvent: function() {
         var e = switchColor.colorObj;
         if ($.cookie(e.colorCookie)) {
@@ -63,50 +77,48 @@ $(document).ready(function() {
         } else {
             switchColor.setColor(e.defaultColor)
         }
-        $(e.colorItem).on("click", function() {           
+        $(e.colorItem).on("click", function() {
             var e = $(this).attr("id");
             switchColor.setColor(e)
         });
         $(e.reset).on("click",function () {
             switchColor.setColor(e.defaultColor)
         })
-
-
     },
+
     setColor: function(e) {
         var t = switchColor.colorObj;
         $.cookie(t.colorCookie, e);
         $(t.headLink).attr("href", "stylesheets/colors/" + e + ".css");
-        $("#logo img").attr("src", "images/logo"+e.match(/\d+/)+".png"); 
+        $("#logo img").attr("src", "images/logo"+e.match(/\d+/)+".png");
         $(t.switchClass).removeClass(t.currentClass);
         $("#" + e).addClass(t.currentClass);
 
           //set color for text in content
-        if($('.infomation.text-center h3').length === 1) {
+        if ($('.infomation.text-center h3').length === 1) {
             var hiText = $('.infomation.text-center h3').closest('.section').css("background-color").toString();
-            if(hiText === "rgb(91, 91, 91)")
+
+            if (hiText === "rgb(91, 91, 91)") {
                 $('.infomation.text-center h3').css('color', "#fff");
             }
         }
-    };
+    }
+};
 
-	
-    var switchAnimate = {
-		loadEvent: function() {
-		  $(".switcher-container h2 a.sw-click").on('click',function(e) {
-            $(this).addClass('active');
-			 var t = $(".switcher-container");
+var switchAnimate = {
+    loadEvent: function() {
+      $(".switcher-container h2 a.sw-click").on('click',function(e) {
+        $(this).addClass('active');
+         var t = $(".switcher-container");
 
-			 if (t.css("left") === "-220px") {
-				$(".switcher-container").animate({ left: "0"}, 300, 'easeInOutExpo')
-			 } else {
-                $(this).removeClass('active');
-				$(".switcher-container").animate({ left: "-220px" }, 300, 'easeInOutExpo')
-			 }
+         if (t.css("left") === "-220px") {
+            $(".switcher-container").animate({ left: "0"}, 300, 'easeInOutExpo')
+         } else {
+            $(this).removeClass('active');
+            $(".switcher-container").animate({ left: "-220px" }, 300, 'easeInOutExpo')
+         }
 
-			 e.preventDefault();
-		 })
-	   }
-	};
-    
-
+         e.preventDefault();
+     })
+   }
+};
